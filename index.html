@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Animation Project</title>
+  </head>
+  <body>
+    <h1 id="banner"><span id="my-name"></span>'s Cool Cohort Project</h1>
+    <fieldset id="controls">
+      <h2>Customize View</h2>
+      <label><input id="speed-slider" type="range" min="1" max="20" value="10"> Speed</label>
+      <label><input id="red-checkbox" type="checkbox">Scores <= 24</label>
+      <label><input id="orange-checkbox" type="checkbox">Scores 25 - 49</label>
+      <label><input id="blue-checkbox" type="checkbox">Scores 50 - 74</label>
+      <label><input id="green-checkbox" type="checkbox">Scores >= 100</label>
+    </fieldset>
+    <div id="p5-canvas"></div>
+    <!-- scripts -->
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/p5.dom.min.js"></script>
+    <script src="lib/p5.sound.min.js"></script>
+    <script src="example.js"></script>
+  </body>
+</html>

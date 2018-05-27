@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  text-align: center;
+}
+
+/* Add your styles below */
+
+#p5-canvas {
+  margin: 10px auto;
+  width: 810px;
+  height: 610px;
+  border: 5px solid red;
+}
+
+#controls {
+  margin: 0 auto;
+  width: 20em;
+  overflow: auto;
+}
+
+#controls p {
+  width: 16em;
+  text-align: right;
+}
+
+#controls label {
+
+  width: 24em;
+  float: right;
+}
