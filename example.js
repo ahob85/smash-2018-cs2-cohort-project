@@ -125,7 +125,7 @@ function drawTestScores() {
        ellipse(ballXValues[i], ballYValues[i], diameter, diameter);
        textSize(32);
        fill("white");
-       textAlign(CENTER);
+       textAlign(CENTER, CENTER);
        text(testScores[i], ballXValues[i], ballYValues[i]);
     }
   }
