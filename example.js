@@ -117,7 +117,6 @@ function drawTestScores() {
       ballYValues[i] += ballYVelocities[i];
     }
     fill(color);
-    noStroke();
     if(color === "red" && redCheckbox.checked() ||
     color === "orange" && orangeCheckbox.checked() ||
     color === "blue" && blueCheckbox.checked() ||
