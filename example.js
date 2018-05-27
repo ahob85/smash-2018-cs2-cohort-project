@@ -11,6 +11,7 @@ var ballYBaseVelocities = [];
 var lowest = 0;
 var highest = 100;
 var speedSlider, redCheckbox, orangeCheckbox, blueCheckbox, greenCheckbox;
+var paused = false;
 
 // initialize global variables in setup() function
 function setup() {
@@ -36,18 +37,24 @@ function draw() {
 }
 
 function updateSpeed() {
-  for(var i = 0; i < testScores.length; i++) {
-    if(ballXVelocities[i] < 0) {
-      ballXVelocities[i] = Math.abs(ballXBaseVelocities[i] * (speedSlider.value() * 10) / 100) * -1;
-    }
-    else {
-      ballXVelocities[i] = Math.abs(ballXBaseVelocities[i] * (speedSlider.value() * 10) / 100);
-    }
-    if(ballYVelocities[i] < 0) {
-      ballYVelocities[i] = Math.abs(ballYBaseVelocities[i] * (speedSlider.value() * 10) / 100) * -1;
-    }
-    else {
-      ballYVelocities[i] = Math.abs(ballYBaseVelocities[i] * (speedSlider.value() * 10) / 100);
+  if(speedSlider.value() === 0) {
+    paused = true;
+  }
+  else {
+    paused = false;
+    for(var i = 0; i < testScores.length; i++) {
+      if(ballXVelocities[i] < 0) {
+        ballXVelocities[i] = Math.abs(ballXBaseVelocities[i] * (speedSlider.value() * 10) / 100) * -1;
+      }
+      else {
+        ballXVelocities[i] = Math.abs(ballXBaseVelocities[i] * (speedSlider.value() * 10) / 100);
+      }
+      if(ballYVelocities[i] < 0) {
+        ballYVelocities[i] = Math.abs(ballYBaseVelocities[i] * (speedSlider.value() * 10) / 100) * -1;
+      }
+      else {
+        ballYVelocities[i] = Math.abs(ballYBaseVelocities[i] * (speedSlider.value() * 10) / 100);
+      }
     }
   }
 }
@@ -105,8 +112,10 @@ function drawTestScores() {
     if(ballYValues[i] >= height - radius || ballYValues[i] <= 0 + radius) {
       ballYVelocities[i] *= -1;
     }
-    ballXValues[i] += ballXVelocities[i];
-    ballYValues[i] += ballYVelocities[i];
+    if(!paused) {
+      ballXValues[i] += ballXVelocities[i];
+      ballYValues[i] += ballYVelocities[i];
+    }
     fill(color);
     noStroke();
     if(color === "red" && redCheckbox.checked() ||
